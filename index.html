@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마음을 전하는 칭찬 우체통 💌</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Pretendard 폰트 -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            warm: {
+              50: '#FDFBF7',
+              100: '#FBF5EE',
+              200: '#F7E7D4',
+              300: '#F1D1B0',
+              400: '#E7B080',
+              500: '#DC8E54',
+              600: '#CA733B',
+            },
+            coral: {
+              400: '#FF8A7A',
+              500: '#FA6D59',
+              600: '#E1523E',
+            }
+          },
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #FDFBF7;
+      background-image: radial-gradient(#F3E7D7 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .faq-answer {
+      transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
+    }
+  </style>
+</head>
+<body class="font-sans text-stone-800 antialiased min-h-screen flex flex-col justify-between selection:bg-orange-200">
+
+  <!-- 헤더 네비게이션 -->
+  <header class="w-full max-w-4xl mx-auto px-6 py-6 flex items-center justify-between">
+    <div class="flex items-center space-x-2">
+      <span class="text-2xl">📮</span>
+      <span class="font-bold text-lg md:text-xl text-stone-700 tracking-tight">마음 칭찬 우체통</span>
+    </div>
+    <div class="flex items-center space-x-2 text-xs md:text-sm font-medium text-stone-600 bg-stone-100/90 px-3.5 py-1.5 rounded-full border border-stone-200/60 shadow-sm">
+      <i class="fa-solid fa-user-check text-stone-500"></i>
+      <span>실명 / 익명 선택 가능</span>
+    </div>
+  </header>
+
+  <!-- 메인 콘텐츠 영역 -->
+  <main class="w-full max-w-3xl mx-auto px-5 py-4 flex-grow flex flex-col items-center">
+    
+    <!-- 히어로 섹션 -->
+    <section class="text-center mt-4 md:mt-8 mb-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/70 border border-orange-200/70 text-orange-700 text-xs md:text-sm font-semibold mb-5 shadow-xs">
+        <i class="fa-regular fa-heart text-coral-500"></i> 따뜻한 마음을 전해보세요
+      </div>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-stone-800 tracking-tight leading-snug md:leading-tight">
+        고마운 마음을 전하고 싶을 때,<br/>
+        <span class="bg-gradient-to-r from-orange-500 to-coral-500 bg-clip-text text-transparent">칭찬의 편지</span>를 띄워보세요
+      </h1>
+      <p class="mt-4 text-stone-600 text-sm md:text-base max-w-lg mx-auto leading-relaxed">
+        작은 배려부터 큰 도움까지 모두 소중합니다.<br class="hidden sm:inline" />
+        원하시는 경우 익명으로도 부담 없이 마음을 남기실 수 있습니다.
+      </p>
+
+      <!-- 칭찬 작성 액션 버튼 카드 -->
+      <div class="mt-8 bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-3xl shadow-xl shadow-stone-200/60 border border-stone-100 flex flex-col items-center max-w-md mx-auto">
+        <button id="openModalBtn" type="button" class="group relative w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 to-coral-500 hover:from-orange-600 hover:to-coral-600 text-white font-bold text-lg rounded-2xl shadow-lg shadow-orange-500/25 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer">
+          <span class="text-xl transition-transform group-hover:scale-110">💌</span>
+          <span>칭찬 작성하기</span>
+        </button>
+        <p class="text-xs text-stone-400 mt-3">
+          페이지 이동 없이 바로 작성하여 마음을 전달할 수 있습니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 안내 카드 섹션 -->
+    <section class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+      <div class="bg-white/90 p-5 rounded-2xl border border-stone-200/70 shadow-xs flex items-start space-x-3.5">
+        <div class="p-2.5 rounded-xl bg-amber-50 text-amber-600 shrink-0 mt-0.5">
+          <i class="fa-solid fa-pen-nib text-lg"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-stone-800 text-sm md:text-base">자유로운 작성 방식</h3>
+          <p class="text-stone-500 text-xs md:text-sm mt-1 leading-normal">
+            실명으로 진심을 표현하거나, 익명으로 편안하게 마음을 남기는 것 모두 환영합니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white/90 p-5 rounded-2xl border border-stone-200/70 shadow-xs flex items-start space-x-3.5">
+        <div class="p-2.5 rounded-xl bg-orange-50 text-orange-600 shrink-0 mt-0.5">
+          <i class="fa-solid fa-shield-halved text-lg"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-stone-800 text-sm md:text-base">건전한 문화 조성</h3>
+          <p class="text-stone-500 text-xs md:text-sm mt-1 leading-normal">
+            중복 신청이나 무분별한 도배를 방지하기 위해 최소한의 접속 메타데이터가 함께 안전하게 기록됩니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 자주 묻는 질문 (FAQ) -->
+    <section class="w-full my-6 bg-white/70 backdrop-blur-xs p-6 rounded-3xl border border-stone-200/70 shadow-xs">
+      <h2 class="text-base md:text-lg font-bold text-stone-800 mb-4 flex items-center gap-2">
+        <i class="fa-regular fa-circle-question text-orange-500"></i> 자주 묻는 질문
+      </h2>
+
+      <div class="space-y-3">
+        <div class="border border-stone-200/70 rounded-xl overflow-hidden bg-white/80">
+          <button type="button" class="faq-toggle w-full px-4 py-3 text-left font-semibold text-stone-700 text-sm flex justify-between items-center hover:bg-stone-50">
+            <span>익명으로 제출하면 작성자가 노출되지 않나요?</span>
+            <i class="fa-solid fa-chevron-down text-stone-400 text-xs transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer px-4 pb-3 pt-1 text-stone-600 text-xs leading-relaxed hidden">
+            네, 보내는 사람 이름을 비워두시면 자동으로 '익명' 처리되어 전송 대상자에게 노출되지 않습니다.
+          </div>
+        </div>
+
+        <div class="border border-stone-200/70 rounded-xl overflow-hidden bg-white/80">
+          <button type="button" class="faq-toggle w-full px-4 py-3 text-left font-semibold text-stone-700 text-sm flex justify-between items-center hover:bg-stone-50">
+            <span>접속 식별 정보는 왜 수집되나요?</span>
+            <i class="fa-solid fa-chevron-down text-stone-400 text-xs transition-transform duration-200"></i>
+          </button>
+          <div class="faq-answer px-4 pb-3 pt-1 text-stone-600 text-xs leading-relaxed hidden">
+            비정상적인 단시간 연속 제출이나 무차별 도배를 방지하기 위한 기술적 관리 장치입니다.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 칭찬 작성 모달 창 (팝업) -->
+  <div id="complimentModal" class="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-6 sm:p-8 border border-stone-100 relative max-h-[90vh] overflow-y-auto">
+      
+      <button id="closeModalBtn" type="button" class="absolute top-5 right-5 text-stone-400 hover:text-stone-600 text-xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-stone-100">
+        &times;
+      </button>
+
+      <div class="flex items-center gap-2 mb-2">
+        <span class="text-2xl">💌</span>
+        <h2 class="text-xl font-bold text-stone-800">칭찬 전하기</h2>
+      </div>
+      <p class="text-xs text-stone-500 mb-6">마음을 담아 따뜻한 칭찬 메시지를 남겨주세요.</p>
+
+      <form id="complimentForm" class="space-y-4">
+        <!-- 1. 칭찬 대상자 -->
+        <div>
+          <label for="targetName" class="block text-xs font-bold text-stone-700 mb-1.5">
+            칭찬받을 사람 <span class="text-orange-500">*</span>
+          </label>
+          <input type="text" id="targetName" required placeholder="예: 홍길동 님"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all">
+        </div>
+
+        <!-- 2. 소속 부서 -->
+        <div>
+          <label for="department" class="block text-xs font-bold text-stone-700 mb-1.5">
+            소속 부서 <span class="text-stone-400 font-normal">(선택사항)</span>
+          </label>
+          <input type="text" id="department" placeholder="예: 개발팀, 경영지원팀 (모를 경우 비워두세요)"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all">
+        </div>
+
+        <!-- 3. 칭찬 메시지 -->
+        <div>
+          <label for="content" class="block text-xs font-bold text-stone-700 mb-1.5">
+            칭찬 메시지 <span class="text-orange-500">*</span>
+          </label>
+          <textarea id="content" rows="4" required placeholder="어떤 점이 고마웠는지, 어떤 순간이 멋졌는지 자유롭게 적어주세요."
+            class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all resize-none"></textarea>
+        </div>
+
+        <!-- 4. 보내는 분 이름 -->
+        <div>
+          <label for="senderName" class="block text-xs font-bold text-stone-700 mb-1.5">
+            보내는 분 이름 <span class="text-stone-400 font-normal">(선택사항 - 비워두면 익명)</span>
+          </label>
+          <input type="text" id="senderName" placeholder="익명으로 보내시려면 비워두세요"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all">
+        </div>
+
+        <!-- 알림 상태 메시지 -->
+        <p id="formStatusMsg" class="text-xs text-center font-medium min-h-[16px] text-stone-500"></p>
+
+        <!-- 제출 버튼 -->
+        <button id="submitFormBtn" type="submit"
+          class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-orange-500 to-coral-500 hover:from-orange-600 hover:to-coral-600 text-white font-bold text-base rounded-xl shadow-md transition-all active:scale-[0.99] disabled:opacity-50">
+          <span id="submitBtnText">우체통에 넣기</span>
+          <svg id="submitSpinner" class="hidden animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 푸터 -->
+  <footer class="w-full max-w-4xl mx-auto px-6 py-8 text-center text-xs text-stone-400">
+    <p>서로를 격려하는 따뜻한 이야기를 함께 만들어갑니다 🌿</p>
+    <p class="mt-1 text-stone-300">© 2026 마음 칭찬 우체통. All rights reserved.</p>
+  </footer>
+
+  <script>
+    /* =========================================================================
+     * [설정 영역] 배포한 Google Apps Script 웹 앱 URL을 여기에 붙여넣어 주세요.
+     * ========================================================================= */
+    const APPS_SCRIPT_URL = "/api/submit";
+
+    function getClientDeviceSummary() {
+      const ua = navigator.userAgent;
+      let os = "Other";
+      if (/windows/i.test(ua)) os = "Windows";
+      else if (/iphone|ipad|ipod/i.test(ua)) os = "iOS";
+      else if (/android/i.test(ua)) os = "Android";
+      else if (/macintosh|mac os x/i.test(ua)) os = "macOS";
+      else if (/linux/i.test(ua)) os = "Linux";
+
+      const deviceType = /mobi|android|iphone|ipad/i.test(ua) ? "Mobile" : "Desktop";
+      const resolution = `${window.screen.width}x${window.screen.height}`;
+      return `${os}_${deviceType}_${resolution}`;
+    }
+
+    async function fetchClientPublicIp() {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 1800);
+      try {
+        const response = await fetch("https://api.ipify.org?format=json", { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (!response.ok) throw new Error();
+        const data = await response.json();
+        return data.ip || "Unknown";
+      } catch (e) {
+        return "Unknown";
+      }
+    }
+
+    const complimentModal = document.getElementById("complimentModal");
+    const openModalBtn = document.getElementById("openModalBtn");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const complimentForm = document.getElementById("complimentForm");
+    const formStatusMsg = document.getElementById("formStatusMsg");
+    const submitFormBtn = document.getElementById("submitFormBtn");
+    const submitBtnText = document.getElementById("submitBtnText");
+    const submitSpinner = document.getElementById("submitSpinner");
+
+    openModalBtn.addEventListener("click", () => {
+      complimentModal.classList.remove("hidden");
+      document.getElementById("targetName").focus();
+    });
+
+    closeModalBtn.addEventListener("click", () => {
+      complimentModal.classList.add("hidden");
+      formStatusMsg.textContent = "";
+    });
+
+    complimentModal.addEventListener("click", (e) => {
+      if (e.target === complimentModal) {
+        complimentModal.classList.add("hidden");
+        formStatusMsg.textContent = "";
+      }
+    });
+
+    complimentForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const targetName = document.getElementById("targetName").value.trim();
+      const department = document.getElementById("department").value.trim() || "-";
+      const content = document.getElementById("content").value.trim();
+      const senderName = document.getElementById("senderName").value.trim() || "익명";
+
+      if (!targetName || !content) {
+        alert("칭찬 대상자와 내용을 모두 입력해 주세요.");
+        return;
+      }
+
+      submitFormBtn.disabled = true;
+      submitBtnText.textContent = "전달하는 중...";
+      submitSpinner.classList.remove("hidden");
+      formStatusMsg.textContent = "따뜻한 마음을 우체통에 넣고 있어요...";
+      formStatusMsg.className = "text-xs text-center font-medium text-orange-500";
+
+      try {
+        const deviceInfo = getClientDeviceSummary();
+        const clientIp = await fetchClientPublicIp();
+
+        const payload = {
+          targetName: targetName,
+          department: department,
+          content: content,
+          senderName: senderName,
+          deviceInfo: deviceInfo,
+          clientIp: clientIp
+        };
+
+        await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        formStatusMsg.textContent = "성공적으로 전달되었습니다! 따뜻한 마음 감사합니다. 💌";
+        formStatusMsg.className = "text-xs text-center font-medium text-green-600";
+        complimentForm.reset();
+
+        setTimeout(() => {
+          complimentModal.classList.add("hidden");
+          formStatusMsg.textContent = "";
+        }, 1800);
+
+      } catch (err) {
+        console.error("전송 오류:", err);
+        formStatusMsg.textContent = "전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.";
+        formStatusMsg.className = "text-xs text-center font-medium text-red-500";
+      } finally {
+        submitFormBtn.disabled = false;
+        submitBtnText.textContent = "우체통에 넣기";
+        submitSpinner.classList.add("hidden");
+      }
+    });
+
+    document.querySelectorAll(".faq-toggle").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const answer = btn.nextElementSibling;
+        const icon = btn.querySelector("i");
+        const isOpen = !answer.classList.contains("hidden");
+
+        if (isOpen) {
+          answer.classList.add("hidden");
+          icon.classList.remove("rotate-180");
+        } else {
+          answer.classList.remove("hidden");
+          icon.classList.add("rotate-180");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
