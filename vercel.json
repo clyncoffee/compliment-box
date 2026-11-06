@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/submit",
-      "destination": "https://script.google.com/macros/s/AKfycb...실제_배포_URL.../exec"
-    }
-  ]
-}
